@@ -50,6 +50,13 @@
         imagem2.remove();
       }
     }
+    function adicionarImagem(elemento, urlImagem, idImagem) {
+      const img = new Image(90);
+      img.src = urlImagem;
+      img.id = idImagem;
+      elemento.appendChild(img);
+    }
+
 
     //funçao que atualiza o placar
     function atualizaPlacar(acertos, tentativas) {
@@ -65,12 +72,7 @@
       //altera a classe CSS da <div> escolhida pelo jogador (className)
       obj.className = "acertou";
       //Criar uma constante img que armazena um novo objeto imagem com largura de 100px
-      const img = new Image(90);
-      img.id = "imagem";
-      //altera o atributo src (source) da imagem criada
-      img.src = "https://upload.wikimedia.org/wikipedia/commons/2/2e/Oxygen480-emotes-face-smile-big.svg";
-      //adiciona a imagem criada na div (obj) escolhida pelo jogador (appendChild)
-      obj.appendChild(img);
+      adicionarImagem(obj, "https://upload.wikimedia.org/wikipedia/commons/2/2e/Oxygen480-emotes-face-smile-big.svg", "imagem");
     }
 
     //Função que sorteia um número aleatório entre 0 e 2 e verifica se o jogador acertou
@@ -103,12 +105,7 @@
           const objSorteado = document.getElementById(sorteado);
           //chama a funçao acertou para mostrar a div aonde está o Smile
           acertou(objSorteado);
-          const img2 = new Image(90);
-          img2.id = "imagem2";
-          //altera o atributo src (source) da imagem criada
-          img2.src = "https://upload.wikimedia.org/wikipedia/commons/3/3b/Sad_smiley.PNG";
-          //adiciona a imagem criada na div (obj) escolhida pelo jogador (appendChild)
-          obj.appendChild(img2);
+          adicionarImagem(obj, "https://upload.wikimedia.org/wikipedia/commons/3/3b/Sad_smiley.PNG", "imagem2");
         }
         //chama a funçao que atualiza o placar
         atualizaPlacar(acertos, tentativas);
